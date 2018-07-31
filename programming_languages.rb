@@ -11,9 +11,11 @@ def reformat_languages(languages)
   end
   
   languages[:functional].each do |lan, data|
-      data.each do |value, type|
-        new_hash[lan] = {value => type, :style => [:functional]}
-      end
+      #if new_hash[lan][:style].nil?
+        data.each do |value, type|
+          new_hash[lan] = {value => type, :style => [:functional]}
+        end
+      #end
   end
   new_hash[:javascript][:style] = [:oo, :functional]
   puts new_hash
